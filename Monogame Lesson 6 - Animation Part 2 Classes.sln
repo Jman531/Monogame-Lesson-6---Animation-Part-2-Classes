@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monogame Lesson 6 - Animation Part 2 Classes", "Monogame Lesson 6 - Animation Part 2 Classes\Monogame Lesson 6 - Animation Part 2 Classes.csproj", "{6FB77FBF-6E4E-43F9-85EF-DCBCDB28CCCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FB77FBF-6E4E-43F9-85EF-DCBCDB28CCCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB77FBF-6E4E-43F9-85EF-DCBCDB28CCCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB77FBF-6E4E-43F9-85EF-DCBCDB28CCCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB77FBF-6E4E-43F9-85EF-DCBCDB28CCCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D65660E1-3ED4-4E95-B676-4A9E600C59DA}
+	EndGlobalSection
+EndGlobal
