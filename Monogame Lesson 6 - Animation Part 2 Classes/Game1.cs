@@ -12,16 +12,13 @@ namespace Monogame_Lesson_6___Animation_Part_2_Classes
         private SpriteBatch _spriteBatch;
         bool justUpdatedScreen = false;
 
-        Tribble tribble1;
+        Tribble tribble1, tribble2, tribble3, tribble4;
 
         MouseState mouseState;
 
         Rectangle window;
 
         Texture2D greyTribbleTexture, brownTribbleTexture, creamTribbleTexture, orangeTribbleTexture, tribbleIntroTexture;
-        Rectangle greyTribbleRect, brownTribbleRect, creamTribbleRect, orangeTribbleRect;
-
-        Vector2 greyTribbleSpeed, brownTribbleSpeed, creamTribbleSpeed, orangeTribbleSpeed;
 
         SoundEffect tribbleCoo;
         SpriteFont instructionFont;
@@ -47,14 +44,6 @@ namespace Monogame_Lesson_6___Animation_Part_2_Classes
         {
             // TODO: Add your initialization logic here
             screen = Screen.Intro;
-            greyTribbleRect = new Rectangle(generator.Next(0, 701), generator.Next(0, 501), 100, 100);
-            greyTribbleSpeed = new Vector2(2, 2);
-            brownTribbleRect = new Rectangle(generator.Next(0, 701), generator.Next(0, 501), 100, 100);
-            brownTribbleSpeed = new Vector2(generator.Next(1, 11), 0);
-            creamTribbleRect = new Rectangle(generator.Next(0, 701), generator.Next(0, 501), 100, 100);
-            creamTribbleSpeed = new Vector2(0, generator.Next(1, 11));
-            orangeTribbleRect = new Rectangle(generator.Next(0, 701), generator.Next(0, 501), 100, 100);
-            orangeTribbleSpeed = new Vector2(generator.Next(-10, 11), generator.Next(-10, 11));
 
             window = new Rectangle(0, 0, 800, 600);
             _graphics.PreferredBackBufferWidth = window.Width;
@@ -62,7 +51,10 @@ namespace Monogame_Lesson_6___Animation_Part_2_Classes
             _graphics.ApplyChanges();
 
             base.Initialize();
-            tribble1 = new Tribble(greyTribbleTexture, new Rectangle(0, 0, 100, 100), new Vector2(2, 2));
+            tribble1 = new Tribble(greyTribbleTexture, new Rectangle(generator.Next(0, 701), generator.Next(0, 501), 100, 100), new Vector2(2, 2));
+            tribble2 = new Tribble(brownTribbleTexture, new Rectangle(generator.Next(0, 701), generator.Next(0, 501), 100, 100), new Vector2(generator.Next(-10, 11), 0));
+            tribble3 = new Tribble(creamTribbleTexture, new Rectangle(generator.Next(0, 701), generator.Next(0, 501), 100, 100), new Vector2(0, generator.Next(-10, 11)));
+            tribble4 = new Tribble(orangeTribbleTexture, new Rectangle(generator.Next(0, 701), generator.Next(0, 501), 100, 100), new Vector2(generator.Next(-10, 11), generator.Next(-10, 11)));
         }
 
         protected override void LoadContent()
@@ -98,32 +90,9 @@ namespace Monogame_Lesson_6___Animation_Part_2_Classes
             else if (screen == Screen.TribbleYard)
             {
                 tribble1.Move(window);
-                brownTribbleRect.X += (int)brownTribbleSpeed.X;
-                brownTribbleRect.Y += (int)brownTribbleSpeed.Y;
-                creamTribbleRect.X += (int)creamTribbleSpeed.X;
-                creamTribbleRect.Y += (int)creamTribbleSpeed.Y;
-                orangeTribbleRect.X += (int)orangeTribbleSpeed.X;
-                orangeTribbleRect.Y += (int)orangeTribbleSpeed.Y;
-
-                if (brownTribbleRect.Left >= window.Width)
-                    brownTribbleRect.X = -99;
-
-                if (creamTribbleRect.Bottom >= window.Height || creamTribbleRect.Top <= 0)
-                {
-                    creamTribbleSpeed.Y *= -1;
-                    tribbleCoo.Play();
-                }
-
-                if (orangeTribbleRect.Right >= window.Width || orangeTribbleRect.Left <= 0)
-                {
-                    orangeTribbleSpeed.X *= -1;
-                    tribbleCoo.Play();
-                }
-                if (orangeTribbleRect.Bottom >= window.Height || orangeTribbleRect.Top <= 0)
-                {
-                    orangeTribbleSpeed.Y *= -1;
-                    tribbleCoo.Play();
-                }
+                tribble2.Move(window);
+                tribble3.Move(window);
+                tribble4.Move(window);
 
                 if (mouseState.LeftButton != ButtonState.Pressed)
                     justUpdatedScreen = false;
@@ -151,9 +120,9 @@ namespace Monogame_Lesson_6___Animation_Part_2_Classes
             else if (screen == Screen.TribbleYard)
             {
                 _spriteBatch.Draw(tribble1.Texture, tribble1.Bounds, Color.White);
-                _spriteBatch.Draw(brownTribbleTexture, brownTribbleRect, Color.White);
-                _spriteBatch.Draw(creamTribbleTexture, creamTribbleRect, Color.White);
-                _spriteBatch.Draw(orangeTribbleTexture, orangeTribbleRect, Color.White);
+                _spriteBatch.Draw(tribble2.Texture, tribble2.Bounds, Color.White);
+                _spriteBatch.Draw(tribble3.Texture, tribble3.Bounds, Color.White);
+                _spriteBatch.Draw(tribble4.Texture, tribble4.Bounds, Color.White);
                 _spriteBatch.DrawString(instructionFont, "Click to end.", new Vector2(0, 0), Color.Black);
             }
 
