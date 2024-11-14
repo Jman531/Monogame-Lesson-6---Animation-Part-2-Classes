@@ -46,12 +46,12 @@ namespace Monogame_Lesson_6___Animation_Part_2_Classes
         {
             _rectangle.Offset(_speed);
 
-            randomNum = _generator.Next(0, 2);
+            randomNum = _generator.Next(0, 3);
 
             if (_rectangle.Right > window.Width)
             {
                 _speed.X *= -1;
-                if (randomNum == 0)
+                if (randomNum == 0 || randomNum == 2)
                     _speed.X -= 1;
                 else if (randomNum == 1)
                     _speed.X += 1;
@@ -61,13 +61,13 @@ namespace Monogame_Lesson_6___Animation_Part_2_Classes
                 _speed.X *= -1;
                 if (randomNum == 0)
                     _speed.X -= 1;
-                else if (randomNum == 1)
+                else if (randomNum == 1 || randomNum == 2)
                     _speed.X += 1;
             }
             if (_rectangle.Bottom > window.Height)
             {
                 _speed.Y *= -1;
-                if (randomNum == 0)
+                if (randomNum == 0 || randomNum == 2)
                     _speed.Y -= 1;
                 else if (randomNum == 1)
                     _speed.Y += 1;
@@ -77,7 +77,7 @@ namespace Monogame_Lesson_6___Animation_Part_2_Classes
                 _speed.Y *= -1;
                 if (randomNum == 0)
                     _speed.Y -= 1;
-                else if (randomNum == 1)
+                else if (randomNum == 1 || randomNum == 2)
                     _speed.Y += 1;
             }
         }
